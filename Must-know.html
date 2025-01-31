@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spy Eye - Advanced Roblox Executors Suite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --neon-glow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem 5%;
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, #fff, #aaa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #fff;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 8rem 5%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 50%);
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .page-title {
+            text-align: center;
+            padding: 4rem 2rem;
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #fff, #aaa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 2rem 0;
+            line-height: 1.3;
+        }
+
+        .download-btn {
+            background: linear-gradient(45deg, #fff 0%, #eee 100%);
+            color: #000;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--neon-glow);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 5%;
+            background: rgba(255, 255, 255, 0.02);
+            margin: 4rem 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 5%;
+            margin: 4rem 0;
+        }
+
+        .image-frame {
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .image-frame:hover {
+            transform: scale(1.02);
+        }
+
+        .tool-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: #1a1a1a;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links {
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: #fff;
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+                padding: 2rem 1rem;
+            }
+        }
+
+        .info-card {
+            background: linear-gradient(145deg, rgba(0, 0, 0, 0.8), rgba(25,25,25,0.9));
+            border: 1px solid rgba(255, 255, 255, 0.281);
+            border-radius: 12px;
+            width: 80%;
+            margin: 1rem auto;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(12px);
+            overflow: hidden;
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3),
+                        0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .info-card.active {
+            background: linear-gradient(145deg, rgba(50,50,50,0.9), rgba(35,35,35,0.95));
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .info-card-header {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            color: #ffffff;
+            position: relative;
+        }
+
+        .info-card-header h3 {
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            flex-grow: 1;
+        }
+
+        .arrow {
+            width: 24px;
+            height: 24px;
+            margin-right: 1.5rem;
+            position: relative;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .arrow::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 10px;
+            height: 10px;
+            border-right: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            transform: translateY(-50%) rotate(-45deg);
+            transition: all 0.3s ease;
+        }
+
+        .info-card.active .arrow::before {
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .info-card-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            padding: 0 1.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            line-height: 1.7;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .info-card.active .info-card-content {
+            max-height: 500px;
+            opacity: 1;
+            padding: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .info-card {
+                width: 90%;
+                margin: 0.75rem auto;
+            }
+            
+            .info-card-header {
+                padding: 1rem;
+            }
+            
+            .info-card-header h3 {
+                font-size: 1.1rem;
+            }
+
+        }
+            .report-link {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    position: relative;
+    padding: 0 2px;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    text-underline-offset: 2px;
+}
+
+.report-link:hover {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.6);
+    border-bottom-color: transparent;
+}
+
+.report-link i {
+    font-size: 0.8em;
+    margin-left: 6px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+.report-link:hover i {
+    color: rgba(255, 255, 255, 1);
+    transform: translateX(3px);
+}
+
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>SPY EYE</h1>
+        <div class="nav-links">
+            <a href="#Main">Main</a>
+        </div>
+    </nav>
+
+    <div class="image-frame" style="max-width: 800px; margin: 0 auto;">
+        <img src="spyeyeicon.png" alt="Protecting Yourself" class="tool-image" style="height: 400px;">
+        <p style="color: #808080; text-align: center; font-size: 14px;">Spy Eye icon</p>
+    </div>
+
+    <h1 class="page-title" style="font-size: 2.8rem;">Safeguarding Yourself from the Social Risks of Using Spy Eye</h1>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="info-card">
+        <div class="info-card-header">
+            <div class="arrow"></div>
+            <h3>1. Should I Tell Others About Using Spy Eye?</h3>
+        </div>
+        <div class="info-card-content">No. It's best to keep your use of Spy Eye private. Many people don't fully understand cybersecurity tools and might misinterpret your intentions. They may view it 
+            as malicious hacking software rather than a security testing 
+    tool, which could damage your reputation, strain relationships, or even lead to unnecessary concerns about your activities. Additionally, sharing information about security tools could make you a target for unwanted attention or scrutiny.</div>
+    </div>
+
+
+    <div class="info-card">
+        <div class="info-card-header">
+            <div class="arrow"></div>
+            <h3>2. Can I Use Spy Eye in Public?</h3>
+        </div>
+        <div class="info-card-content">No, it's best to use Spy Eye in private places, not in public locations like coffee shops or parks. Since Spy Eye uses a terminal-based interface, people who see your screen might misinterpret your activities as malicious hacking. This could lead to serious misunderstandings, with bystanders potentially reporting you to authorities due to suspicious laptop usage with terminal commands. We strongly recommend using Spy Eye only in private spaces like your bedroom where you won't draw unwanted attention or concern from others.</div>
+    </div>
+
+
+    
+    <div class="info-card">
+        <div class="info-card-header">
+            <div class="arrow"></div>
+            <h3>4. I Saw Something Suspicious</h3>
+            </div>
+            <div class="info-card-content">
+                <p>If you notice something suspicious while using the Spy’s Eye tool in Roblox, such as inappropriate behavior or rule-breaking activities, it's important to take action. First, carefully observe and confirm the suspicious activity. If you're unsure, it's best to report it using Roblox’s built-in reporting system. Avoid engaging with the player directly, as this could lead to unwanted attention or escalation. Instead, document any necessary details, such as the player’s username and what they were doing, before submitting a report. Staying vigilant and using the tool responsibly helps maintain a safe and enjoyable experience for everyone.</p>
+                
+                <p>In the United States, you can report suspicious activity to the 
+                    <a href="https://www.ic3.gov/" target="_blank" rel="noopener noreferrer" class="report-link">
+                        FBI's Internet Crime Complaint Center (IC3)
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </p>
+                
+                <p>In the UK, you can report suspicious activity to 
+                    <a href="https://www.actionfraud.police.uk/" target="_blank" rel="noopener noreferrer" class="report-link">
+                        Action Fraud
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </p>
+                
+                <p>In Saudi Arabia, you can report suspicious activity to
+                    <a href="https://www.moi.gov.sa/wps/portal/Home/sectors/publicsecurity/publicsecurity/contents/" target="_blank" rel="noopener noreferrer" class="report-link">
+                        Saudi Public Security
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </p>
+                
+                <p>In the United Arab Emirates, you can report suspicious activity to
+                    <a href="https://www.ecrime.ae/" target="_blank" rel="noopener noreferrer" class="report-link">
+                        UAE E-Crime Portal
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </p>
+                
+                <p>In China, you can report suspicious activity to
+                    <a href="https://www.12377.cn/" target="_blank" rel="noopener noreferrer" class="report-link">
+                        China Internet Reporting Center
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </p>
+                
+                <p>In Russia, you can report suspicious activity to
+                    <a href="https://мвд.рф/" target="_blank" rel="noopener noreferrer" class="report-link">
+                        Russian Ministry of Internal Affairs
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </p>
+                
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <script>
+        // Add click event listener to the Main navigation link
+        document.querySelector('.nav-links a[href="#Main"]').addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default anchor behavior
+            window.location.href = 'Download.html'; // Redirect to Download.html
+        });
+
+        // Custom cursor styles
+        const cursor = document.createElement('div');
+        cursor.className = 'custom-cursor';
+        document.body.appendChild(cursor);
+
+        const cursorStyle = document.createElement('style');
+        cursorStyle.innerHTML = `
+            .custom-cursor {
+                width: 12px;
+                height: 12px;
+                background-color: rgba(255, 255, 255, 0.8);
+                border-radius: 50%;
+                position: fixed;
+                pointer-events: none;
+                z-index: 9999;
+                transition: all 0.15s ease;
+                transform: translate(-50%, -50%);
+                mix-blend-mode: difference;
+            }
+            * {
+                cursor: none !important;
+            }
+            .custom-cursor.hover {
+                transform: translate(-50%, -50%) scale(2);
+                background-color: rgba(255, 255, 255, 1);
+            }
+        `;
+        document.head.appendChild(cursorStyle);
+
+        // Update cursor position
+        document.addEventListener('mousemove', (e) => {
+            requestAnimationFrame(() => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+        });
+
+        // Add hover effect to all interactive elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const interactiveElements = document.querySelectorAll('a, button, input, select, textarea, [role="button"]');
+            interactiveElements.forEach(element => {
+                element.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+                element.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+            });
+        });
+
+        // Card interaction logic
+        document.querySelectorAll('.info-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('active');
+                
+                // Close other cards when opening a new one
+                if (card.classList.contains('active')) {
+                    document.querySelectorAll('.info-card').forEach(otherCard => {
+                        if (otherCard !== card && otherCard.classList.contains('active')) {
+                            otherCard.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

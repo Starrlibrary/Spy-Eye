@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spy Eye - Advanced Roblox Executors Suite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --neon-glow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem 5%;
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, #fff, #aaa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #fff;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 8rem 5%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 50%);
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .download-btn {
+            background: linear-gradient(45deg, #fff 0%, #eee 100%);
+            color: #000;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--neon-glow);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 5%;
+            background: rgba(255, 255, 255, 0.02);
+            margin: 4rem 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 5%;
+            margin: 4rem 0;
+        }
+
+        .image-frame {
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .image-frame:hover {
+            transform: scale(1.02);
+        }
+
+        .tool-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: #1a1a1a;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links {
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: #fff;
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>SPY EYE</h1>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#gallery">Preview</a>
+            <a href="#download">Download</a>
+            <a href="#Terms of Service">Terms of Service</a>
+            <a href="#Must-Know-Info">Must-Know Info</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h2>Next-Gen Roblox Executors & Monitoring</h2>
+        <p>Take control and unleash unlimited possibilities in any Roblox game</p>
+        <button class="download-btn">
+            <i class="fas fa-download"></i> Download v1.0.2
+        </button>
+    </section>
+
+<div class="section-title" style="text-align: center;">
+        <h2 style="font-size: 3rem;">What is Spy Eye?</h2>
+        <div style="width: 100px; height: 5px; background: #fff; margin: 15px auto;"></div>
+        <p style="font-size: 1.2rem; margin-top: 20px;">Spy Eye is a professional-grade Roblox executor providing advanced script execution and game modification capabilities. Our streamlined interface delivers powerful control while maintaining ease of use.</p>
+    </div>  
+    <div class="section-title" style="text-align: center;">
+            <h2 style="font-size: 3rem;">Features</h2>
+            <div style="width: 100px; height: 5px; background: #fff; margin: 15px auto;"></div>
+        </div>    
+
+    <section id="features" class="features">
+        <div class="feature-card">
+            <i class="fas fa-eye feature-icon"></i>
+            <h3>Stealth Monitoring</h3>
+            <p>Undetectable chat tracking with encrypted logging system</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-shield-alt feature-icon"></i>
+            <h3>Proxy Shield</h3>
+            <p>Secure proxy connection with automatic IP rotation</p>
+        </div>
+   
+
+        
+        <div class="feature-card">
+            <i class="fas fa-users feature-icon"></i>
+            <h3>Username Extraction</h3>
+            <p>Instantly copy all usernames from current server</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-server feature-icon"></i>
+            <h3>Server Information</h3>
+            <p>Quick access to detailed server info and statistics</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-hashtag feature-icon"></i>
+            <h3>Hash Generator</h3>
+            <p>Generate secure hashes for data verification</p>
+        </div>
+        <div class="feature-card">
+            <i class="fa-solid fa-arrow-right-from-bracket feature-icon"></i>
+            <h3>Roblox Control</h3>
+            <p>Close and open Roblox instantly with hotkeys</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-network-wired feature-icon"></i>
+            <h3>IP Information</h3>
+            <p>Get detailed IP information and network analytics</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-user-minus feature-icon"></i>
+            <h3>Self Kick</h3>
+            <p>Instantly kick yourself from any Roblox game</p>
+        </div>
+
+
+
+          <div class="feature-card">
+              <i class="fas fa-code feature-icon" style="animation: iconPulse 3s infinite"></i>
+              <h3>Luau Code Executor</h3>
+              <p>Execute your custom Luau code in any Roblox game</p>
+          </div>
+          <style>
+              @keyframes iconPulse {
+                  0% { color: white; }
+                  50% { color: rgb(23, 28, 176); }
+                  100% { color: white; }
+              }
+          </style>
+
+
+
+        <div class="feature-card">
+            <i class="fas fa-video feature-icon"></i>
+            <h3>Screen Recorder</h3>
+            <p>Record your gameplay with high quality and no lag</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-eye-slash feature-icon"></i>
+            <h3>Undercover Mode</h3>
+            <p>Teleport to hidden spots and spectate players using Q & E keys</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-toolbox feature-icon"></i>
+            <h3>Infinite Yield FE</h3>
+            <p>Access admin-like commands and features for enhanced gameplay control</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-user-shield feature-icon"></i>
+            <h3>100% Safe & Secure</h3> 
+            <p>Verified clean by multiple antivirus providers including Avast, Malwarebytes, and VirusTotal</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-map-location-dot feature-icon"></i>
+            <h3>Spy Eye Deep</h3>
+            <p>Advanced real-time player tracking with movement monitoring, chat logs and detailed analytics</p>
+        </div>
+   
+        <div class="feature-card">
+            <i class="fas fa-key feature-icon"></i>
+            <h3>No Key Required</h3>
+            <p>Free to use without any key system or authentication required</p>
+
+        </div>
+        
+        <div class="feature-card">
+                    <i class="fas fa-crosshairs feature-icon"></i>
+                    <h3>ESP Features</h3>
+                    <p>See players through walls with customizable ESP boxes, tracers, and distance indicators</p>
+                </div>
+        <div class="feature-card">
+                    <i class="fas fa-bullseye feature-icon"></i>
+                    <h3>Advanced Aimbot</h3>
+                    <p>Precision targeting with customizable smoothness, FOV, and bone selection</p> 
+                 </div>
+                <div class="feature-card">
+                                    <i class="fas fa-ghost feature-icon"></i>
+                                    <h3>Noclip Mode</h3>
+                                    <p>Walk through walls and objects freely with toggleable noclip functionality</p>
+                                </div>
+
+<div class="feature-card">
+                    <i class="fas fa-bolt feature-icon"></i>
+                    <h3>Speed </h3>
+                    <p>Adjust player movement speed with customizable multipliers and hotkeys</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shoe-prints feature-icon"></i>
+                    <h3>Jump Power </h3>
+                    <p>Modify your jump height and power with adjustable multipliers for enhanced mobility</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-sync-alt feature-icon"></i>
+                    <h3>Spin </h3>
+                    <p>Make your character spin at any speed with adjustable rotation values</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-notes-medical feature-icon"></i>
+                    <h3>God Mode</h3> 
+                      <p>Become invincible with unlimited health and damage immunity</p>
+                </div>
+                <div class="feature-card">
+                                    <i class="fas fa-skull-crossbones feature-icon"></i>
+                                    <h3>Kill Fling</h3>
+                                    <p>Automatically teleport to players and fling them with lethal force using loop mechanics</p>
+                                </div>
+                
+                </section>
+    <section id="gallery" class="image-grid">
+        <div class="image-frame">
+            <img src="Nmap-behind-31c3.png" alt="Spy Eye Interface" class="tool-image" onclick="showFullscreen(this)">
+            <div class="image-overlay">
+                <h3>Spy Eye Interface</h3>
+                <p>Powerful and intuitive user interface</p>
+            </div>
+        </div>
+        <div class="image-frame">
+            <img src="konami-silent-hill-f-sailent-khill-f-game-igra-khorror-horro.jpg" alt="Security Analytics" class="tool-image" onclick="showFullscreen(this)">
+            <div class="image-overlay">
+                <h3>Security Analytics</h3>
+                <p>Advanced security monitoring tools</p>
+            </div>
+        </div>
+        <div class="image-frame">
+            <img src="proxyspyeye.png" alt="Proxy Network" class="tool-image" onclick="showFullscreen(this)">
+            <div class="image-overlay">
+                <h3>Proxy Network</h3>
+                <p>Secure and anonymous connections</p>
+            </div>
+        </div>
+
+        <div id="fullscreen-container" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); z-index: 1000;">
+            <span class="close-btn" onclick="closeFullscreen()" style="position: absolute; top: 20px; right: 30px; color: white; font-size: 30px; cursor: pointer;">×</span>
+            <img id="fullscreen-image" style="max-width: 90%; max-height: 90%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        </div>
+
+        <script>
+            function showFullscreen(img) {
+                document.getElementById('fullscreen-container').style.display = 'block';
+                document.getElementById('fullscreen-image').src = img.src;
+            }
+
+            function closeFullscreen() {
+                document.getElementById('fullscreen-container').style.display = 'none';
+            }
+        </script>
+</section>        
+    </section>
+    <section id="download" class="hero">
+        <h2>Start Using Spy eye</h2>
+        <button class="download-btn">
+            <i class="fas fa-download"></i> Download for Windows
+        </button>
+        <p style="margin-top: 1rem; opacity: 0.8;">v1.0.2 | 12.8 MB | SHA-256 Verified</p>
+        <p style="margin-top: 1rem; opacity: 0.8;">Open Source Software - Available on GitHub</p>
+    </section>
+
+    <footer>
+        <p>© 2023 Starrlibrary</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+        <p style="margin-top: 1rem; opacity: 0.6; font-size: 0.9rem;">
+            For educational purposes only. Not affiliated with Roblox Corporation.
+        </p>
+    </footer>
+
+    <script>
+
+
+             // Add click event listener to the Main navigation link
+             document.querySelector('.nav-links a[href="#Must-Know-Info"]').addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default anchor behavior
+            window.location.href = 'Must-know.html'; // Redirect to Download.html
+        });
+
+  // Custom cursor styles
+  const cursor = document.createElement('div');
+          cursor.className = 'custom-cursor';
+          document.body.appendChild(cursor);
+
+          const cursorStyle = document.createElement('style');
+          cursorStyle.innerHTML = `
+              .custom-cursor {
+                  width: 12px;
+                  height: 12px;
+                  background-color: rgba(255, 255, 255, 0.8);
+                  border-radius: 50%;
+                  position: fixed;
+                  pointer-events: none;
+                  z-index: 9999;
+                  transition: all 0.15s ease;
+                  transform: translate(-50%, -50%);
+                  mix-blend-mode: difference;
+              }
+              * {
+                  cursor: none !important;
+              }
+              .custom-cursor.hover {
+                  transform: translate(-50%, -50%) scale(2);
+                  background-color: rgba(255, 255, 255, 1);
+              }
+          `;
+          document.head.appendChild(cursorStyle);
+
+          // Update cursor position
+          document.addEventListener('mousemove', (e) => {
+              requestAnimationFrame(() => {
+                  cursor.style.left = e.clientX + 'px';
+                  cursor.style.top = e.clientY + 'px';
+              });
+          });
+
+          // Add hover effect to all interactive elements
+          document.addEventListener('DOMContentLoaded', () => {
+              const interactiveElements = document.querySelectorAll('a, button, input, select, textarea, [role="button"]');
+              interactiveElements.forEach(element => {
+                  element.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+                  element.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+              });
+          });
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const offset = 80;
+                window.scrollTo({
+                    top: target.offsetTop - offset,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.feature-card').forEach((card) => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
